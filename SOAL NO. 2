@@ -37,3 +37,27 @@ class hashTableKu {
         return keys;
     }
 }
+
+
+public class MAIN {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        hashTableKu hashTable = new hashTableKu(5000);
+
+        System.out.println("Masukkan paragraf (akhiri dengan baris kosong):");
+        StringBuilder paragraphBuilder = new StringBuilder();
+
+        while (true) {
+            String line = scanner.nextLine();
+            if (line.isEmpty()) {
+                break;
+            }
+            paragraphBuilder.append(line).append(" ");
+        }
+
+        String paragraph = paragraphBuilder.toString();
+        scanner.close();
+        
+        String[] words = paragraph.toLowerCase().split("\\W+");
+    }
+}
