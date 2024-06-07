@@ -59,5 +59,26 @@ public class MAIN {
         scanner.close();
         
         String[] words = paragraph.toLowerCase().split("\\W+");
+        
+        
+        int wordCount = 5000;
+        int maxWord = 0;
+        
+        for (String word : words) {
+            if (!word.isEmpty()) {
+                if(wordCount>=maxWord) {
+                    break;
+                }
+                hashTable.insert(word);
+                wordCount++;
+            }
+        }
+
+        ArrayList<String> sortedWords = hashTable.getKeys();
+        Collections.sort(sortedWords);
+
+        for (String word : sortedWords) {
+            System.out.println(word);
+        }
     }
 }
