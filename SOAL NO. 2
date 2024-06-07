@@ -19,4 +19,21 @@ class hashTableKu {
         }
         return (int) hashValue;
     }
+    
+    
+    public void insert(String key) {
+        int index = rumusHashTable(key);
+        ArrayList<String> bucket = table.get(index);
+        if (!bucket.contains(key)) {
+            bucket.add(key);
+        }
+    }
+
+    public ArrayList<String> getKeys() {
+        ArrayList<String> keys = new ArrayList<>();
+        for (ArrayList<String> bucket : table) {
+            keys.addAll(bucket);
+        }
+        return keys;
+    }
 }
