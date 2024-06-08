@@ -20,7 +20,6 @@ class hashTableKu {
         return (int) hashValue;
     }
     
-    
     public void insert(String key) {
         int index = rumusHashTable(key);
         ArrayList<String> bucket = table.get(index);
@@ -38,31 +37,18 @@ class hashTableKu {
     }
 }
 
-
 public class MAIN {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         hashTableKu hashTable = new hashTableKu(5000);
 
-        System.out.println("Masukkan paragraf (akhiri dengan baris kosong):");
-        StringBuilder paragraphBuilder = new StringBuilder();
-
-        while (true) {
-            String line = scanner.nextLine();
-            if (line.isEmpty()) {
-                break;
-            }
-            paragraphBuilder.append(line).append(" ");
-        }
-
-        String paragraph = paragraphBuilder.toString();
+        String paragraph = scanner.nextLine();
         scanner.close();
         
         String[] words = paragraph.toLowerCase().split("\\W+");
         
-        
-        int wordCount = 5000;
-        int maxWord = 0;
+        int wordCount = 0;
+        int maxWord = 5000;
         
         for (String word : words) {
             if (!word.isEmpty()) {
